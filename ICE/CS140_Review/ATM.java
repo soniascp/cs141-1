@@ -49,33 +49,48 @@ public class ATM
       while(!done)
       {
  
-      System.out.println("Select a transaction: ");
-      System.out.println("1 - Balance Inquiry\n2 - Withdraw Cash\n" + 
-                         "3 - Make A Deposit\n4 - Exit");
-      int transaction = kb.nextInt();
-      switch (transaction)
-      {
-         case 1:
-            System.out.println("Available balance: " + balance);
-            System.out.print("Insert 2 to Withdraw Cash, 3 to Make A Deposit," +
-                             " or 4 to Exit.");
-            break;
-
-         case 2:
-            System.out.print("Deposit. Enter an amount: ");
-            break;
-         case 4:
-            done = true;
-            break;
-         default:
-            System.out.println("you dun fuked up");
-            break;
-      }            
+         System.out.println("Select a transaction: ");
+         System.out.println("1 - Balance Inquiry\n2 - Withdraw Cash\n" + 
+                            "3 - Make A Deposit\n4 - Exit");
+         int transaction = kb.nextInt();
+         switch (transaction)
+         {
+            case 1:
+               System.out.println("Available balance: " + balance);
+               break;
+            case 2:
+               withdraw(balance);
+            case 3:
+               System.out.print("Deposit. Enter an amount: ");
+               break;
+            case 4:
+               System.out.print("Thank you for using ARC Banking");
+               done = true;
+               break;
+            default:
+               System.out.println("Invalid input. Try again");
+               break;
+         }            
       {
    }
    /*
     * TODO: If the user wants to withdraw, ensure that the amount they want to 
       withdraw is of equal or less value of their balance
     */
+   public static void withdraw(double balance)
+   {
+      Scanner kb = new Scanner(System.in);
+      System.out.print("Withdraw. Enter an amount: "); 
+      double input = kb.nextDouble();
+      // <, >, <=, >=, ==, !=
+      if (input <= balance)
+      {
+
+      }
+      else
+      {
+         System.out.print("Error. You do not enough money to make this transaction.");
+      }
+   }
  
 }
