@@ -72,25 +72,6 @@ public class ATM
                break;
          }            
       {
-   }
-   /*
-    * TODO: If the user wants to withdraw, ensure that the amount they want to 
-      withdraw is of equal or less value of their balance
-    */
-   public static void withdraw(double balance)
-   {
-      Scanner kb = new Scanner(System.in);
-      System.out.print("Withdraw. Enter an amount: "); 
-      double input = kb.nextDouble();
-      // <, >, <=, >=, ==, !=
-      if (input <= balance)
-      {
-
-      }
-      else
-      {
-         System.out.print("Error. You do not enough money to make this transaction.");
-      }
-   }
+   
  
 }
