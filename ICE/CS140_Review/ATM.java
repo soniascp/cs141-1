@@ -45,6 +45,9 @@ public class ATM
         If the file exists, ask the user whether they'd like to withdraw or 
         deposit money into their account
       */
+      boolean done = false;
+      while(!done)
+      {
  
       System.out.println("Select a transaction: ");
       System.out.println("1 - Balance Inquiry\n2 - Withdraw Cash\n" + 
@@ -54,10 +57,21 @@ public class ATM
       {
          case 1:
             System.out.println("Available balance: " + balance);
-            System.out.print("Insert 2 to Withdraw Cash, 3 to Make A Deposit, or 4 to Exit.");
+            System.out.print("Insert 2 to Withdraw Cash, 3 to Make A Deposit," +
+                             " or 4 to Exit.");
+            break;
+
          case 2:
             System.out.print("Deposit. Enter an amount: ");
+            break;
+         case 4:
+            done = true;
+            break;
+         default:
+            System.out.println("you dun fuked up");
+            break;
       }            
+      {
    }
    /*
     * TODO: If the user wants to withdraw, ensure that the amount they want to 
