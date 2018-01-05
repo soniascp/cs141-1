@@ -1,4 +1,3 @@
-
 // Team ARC
 // Cassi Lam, Angela Kwok, Raoul Soans
 // CS141 Section 1
