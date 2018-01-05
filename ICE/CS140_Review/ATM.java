@@ -27,18 +27,19 @@ public class ATM
       Scanner kb = new Scanner(System.in);
       System.out.print("Welcome! Please enter your filename: ");
       String filename = kb.nextLine();
-      File file = new File(filename);
-      Scanner inputFile = new Scanner(file);
+      File file = new File(filename); 
 
       // If the file does not exist, terminate the program.
       if (!file.exists())
       {
-         System.out.print("File does not exist.");
+         System.out.println("File does not exist.");
          System.exit(0);
       }
-      FileWriter fw = new FileWriter(filename, false);
-      PrintWriter balanceFile = new PrintWriter(fw);
       
+      Scanner inputFile = new Scanner(file);
+      FileWriter fw = new FileWriter(filename, true);    
+      PrintWriter balanceFile = new PrintWriter(fw);  
+
       double balance = 0;
       while (inputFile.hasNextDouble())
          balance = inputFile.nextDouble();
@@ -66,17 +67,19 @@ public class ATM
                if (amount <= balance)
                {
                   balance -= amount;
-                  balanceFile.println(balance);     
+                  balanceFile.printf("-%.2f\n", amount);
+                  balanceFile.printf("%.2f\n", balance);
                   System.out.println("Transaction Complete.");
                }
                else
-                  System.out.print("Error. Not enough funds.");
+                  System.out.println("Error. Not enough funds.");
                break;
             case 3:
                System.out.print("Deposit. Enter an amount: ");
                amount = kb.nextDouble();
                balance += amount;
-               balanceFile.println(balance);
+               balanceFile.printf("+%.2f\n", amount);
+               balanceFile.printf("%.2f\n", balance);
                System.out.println("Transaction Complete.");
                break;
             case 4:
