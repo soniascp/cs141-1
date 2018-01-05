@@ -36,42 +36,60 @@ public class ATM
          System.out.print("File does not exist.");
          System.exit(0);
       }
+      FileWriter fw = new FileWriter(filename, false);
+      PrintWriter balanceFile = new PrintWriter(fw);
       
       double balance = 0;
       while (inputFile.hasNextDouble())
          balance = inputFile.nextDouble();
       
       /*
-        If the file exists, ask the user whether they'd like to withdraw or 
-        deposit money into their account
+        If the file exists, ask the user whether they'd like to check their balance, withdraw cash,
+        or deposit money into their account (or exit).
       */
       boolean done = false;
       while(!done)
       {
- 
          System.out.println("Select a transaction: ");
-         System.out.println("1 - Balance Inquiry\n2 - Withdraw Cash\n" + 
-                            "3 - Make A Deposit\n4 - Exit");
+         System.out.println("1 - Balance Inquiry, 2 - Withdraw Cash, " + 
+                            "3 - Make A Deposit, 4 - Exit");
          int transaction = kb.nextInt();
+        
          switch (transaction)
          {
             case 1:
                System.out.println("Available balance: " + balance);
                break;
             case 2:
-               withdraw(balance);
+               System.out.print("Withdraw. Enter an amount: ");
+               double amount = kb.nextDouble();
+               if (amount <= balance)
+               {
+                  balance -= amount;
+                  balanceFile.println(balance);     
+                  System.out.println("Transaction Complete.");
+               }
+               else
+                  System.out.print("Error. Not enough funds.");
+               break;
             case 3:
                System.out.print("Deposit. Enter an amount: ");
+               amount = kb.nextDouble();
+               balance += amount;
+               balanceFile.println(balance);
+               System.out.println("Transaction Complete.");
                break;
             case 4:
-               System.out.print("Thank you for using ARC Banking");
+               System.out.println("Thank you for using ARC Banking");
                done = true;
                break;
             default:
                System.out.println("Invalid input. Try again");
                break;
          }            
-      {
+      }
+      //close files
+      balanceFile.close();
    
- 
+   } 
 }
