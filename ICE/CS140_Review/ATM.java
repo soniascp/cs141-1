@@ -6,6 +6,19 @@
 import java.util.Scanner;
 import java.io.*;
 
+/**
+ * ATM- This program allows the user to check their balance, make a deposit, 
+ * and withdraw money.
+ *
+ * 1.) Asks user to input the name of th efiule that contains their balance
+ * 2.) If the file does not exist, terminate the program.
+ * 3.) If the file exists, ask the user whether they'd like to withdraw or 
+ *     deposit money into thier account
+ * 4.) If the user wants to withdraw, ensure that the amount they want to 
+ *     withdraw is of equal or less value of their balance
+ *
+ */
+
 public class ATM 
 {
    public static void main(String[] args) throws IOException 
@@ -34,7 +47,7 @@ public class ATM
             System.out.println("Available balance: " + balance);
             System.out.print("Insert 2 to Withdraw Cash, 3 to Make A Deposit, or 4 to Exit.");
          case 2:
-                        
+            System.out.print("Deposit. Enter an amount: ");
       }            
    }
 }
