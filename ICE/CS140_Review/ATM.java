@@ -12,8 +12,8 @@ import java.io.*;
  *
  * 1.) Asks user to input the name of the file that contains their balance
  * 2.) If the file does not exist, terminate the program.
- * 3.) If the file exists, ask the user whether they'd like to withdraw or 
- *     deposit money into their account
+ * 3.) If the file exists, ask the user whether they'd like to check their
+ *     balance, withdraw money, make a deposit, or exit
  * 4.) If the user wants to withdraw, ensure that the amount they want to 
  *     withdraw is of equal or less value of their balance
  *
@@ -45,7 +45,8 @@ public class ATM
          balance = inputFile.nextDouble();
       
       /*
-        If the file exists, ask the user whether they'd like to check their balance, withdraw cash,
+        If the file exists, ask the user whether they'd like to
+        check their balance, withdraw cash,
         or deposit money into their account (or exit).
       */
       boolean done = false;
