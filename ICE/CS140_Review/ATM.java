@@ -7,8 +7,8 @@ import java.util.Scanner;
 import java.io.*;
 
 /**
- * ATM- This program allows the user to check their balance, make a deposit, 
- * and withdraw money.
+ *  ATM- This program allows the user to check their balance, 
+ *  make a deposit, and withdraw money.
  *
  * 1.) Asks user to input the name of the file that contains their balance
  * 2.) If the file does not exist, terminate the program.
