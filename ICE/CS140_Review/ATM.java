@@ -12,8 +12,8 @@ import java.io.*;
  *
  * 1.) Asks user to input the name of the file that contains their balance
  * 2.) If the file does not exist, terminate the program.
- * 3.) If the file exists, ask the user whether they'd like to withdraw or 
- *     deposit money into their account
+ * 3.) If the file exists, ask the user whether they'd like to check their
+ *     balance, withdraw money, make a deposit, or exit
  * 4.) If the user wants to withdraw, ensure that the amount they want to 
  *     withdraw is of equal or less value of their balance
  *
@@ -27,24 +27,26 @@ public class ATM
       Scanner kb = new Scanner(System.in);
       System.out.print("Welcome! Please enter your filename: ");
       String filename = kb.nextLine();
-      File file = new File(filename);
-      Scanner inputFile = new Scanner(file);
+      File file = new File(filename); 
 
       // If the file does not exist, terminate the program.
       if (!file.exists())
       {
-         System.out.print("File does not exist.");
+         System.out.println("File does not exist.");
          System.exit(0);
       }
-      FileWriter fw = new FileWriter(filename, false);
-      PrintWriter balanceFile = new PrintWriter(fw);
       
+      Scanner inputFile = new Scanner(file);
+      FileWriter fw = new FileWriter(filename, true);    
+      PrintWriter balanceFile = new PrintWriter(fw);  
+
       double balance = 0;
       while (inputFile.hasNextDouble())
          balance = inputFile.nextDouble();
       
       /*
-        If the file exists, ask the user whether they'd like to check their balance, withdraw cash,
+        If the file exists, ask the user whether they'd like to
+        check their balance, withdraw cash,
         or deposit money into their account (or exit).
       */
       boolean done = false;
@@ -66,17 +68,19 @@ public class ATM
                if (amount <= balance)
                {
                   balance -= amount;
-                  balanceFile.println(balance);     
+                  balanceFile.printf("-%.2f\n", amount);
+                  balanceFile.printf("%.2f\n", balance);
                   System.out.println("Transaction Complete.");
                }
                else
-                  System.out.print("Error. Not enough funds.");
+                  System.out.println("Error. Not enough funds.");
                break;
             case 3:
                System.out.print("Deposit. Enter an amount: ");
                amount = kb.nextDouble();
                balance += amount;
-               balanceFile.println(balance);
+               balanceFile.printf("+%.2f\n", amount);
+               balanceFile.printf("%.2f\n", balance);
                System.out.println("Transaction Complete.");
                break;
             case 4:
