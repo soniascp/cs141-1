@@ -1,5 +1,5 @@
 // Team Rocket
-// Cassi Lam, Sonia 
+// Cassi Lam, Sonia Carrillo, YoungJun Woo 
 // Winter 2018
 
 /**
@@ -8,7 +8,9 @@
 
 public class Customer
 {
-	
+   private String name;
+   private String address;
+   private int phoneNumber;
 
 }
 
