@@ -9,6 +9,7 @@ public class ComputerRepairDemo
 		// Create a customer object
 		Customer firstCustomer = 
 			new Customer("John Smith", "12345 Hollywood Dr", 1234567890);
-		
+	
+	
 	}
 }
