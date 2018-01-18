@@ -8,9 +8,12 @@
 
 public class Customer
 {
-   private String name;
-   private String address;
-   private int phoneNumber;
+   private String customerName;
+   private String customerAddress;
+   private int customerNumber;
 
+   public Customer(String name, String address, int number)
+   {
+   }
 }
 
