@@ -3,28 +3,54 @@
 // Winter 2018
 
 /**
- * The Customer class holds customer info.
+ * The Customer class stores customer info.
  */
 
 public class Customer
 {
-   private String customerName;
-   private String customerAddress;
-   private int customerNumber;
+   private String name;
+   private String streetAddress;
+   private int phoneNumber;
 
    /**
     * Constructor
-    * @param name The name of the customer
+    * @param n The name of the customer
     * @param address The customer's address
     * @param number The customer's phone number
     */
-   public Customer(String name, String address, int number)
+   public Customer(String n, String address, int number)
    {
-      customerName = name;
-      customerAddress = address;
-      customerNumber = number;
+      name = n;
+      streetAddress = address;
+      phoneNumber = number;
    }
+	
+	/**
+    * The setName method stores a value in the name field
+	 * @param n The value to store in name
+    */
+	public void setName(String n)
+	{
+		name = n;
+	}
 
+	/**
+	 * The setAddress method stores a value in the streetAddress field
+	 * @param address The value to store in streetAddress
+	 */
+	public void setAddress(String address)
+	{
+		streetAddress = address;
+	}
 
+	/**
+	 * The setNumber method stores a value in the phoneNumber field
+	 * @param number The value to store in phoneNumber
+	 */
+	public void setNumber(int number)
+	{
+		phoneNumber = number;
+	}
+	
 }
 
